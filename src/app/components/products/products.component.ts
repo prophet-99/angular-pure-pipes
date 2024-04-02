@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BehaviorSubject, EMPTY, Observable, switchMap } from 'rxjs';
+import {
+  BehaviorSubject,
+  EMPTY,
+  Observable,
+  debounceTime,
+  distinctUntilChanged,
+  switchMap,
+} from 'rxjs';
 
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../models/product.model';
@@ -17,6 +24,8 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.products$ = this.searchTerm$.pipe(
+      debounceTime(600),
+      distinctUntilChanged(),
       switchMap((term) => this.productsService.getProducts(term))
     );
   }
