@@ -1,3 +1,21 @@
+// FONTSOURCE
+@import '@fontsource-variable/rubik';
+// TAILWIND
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Rubik Variable', sans-serif;
+}
