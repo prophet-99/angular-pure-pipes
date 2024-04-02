@@ -9,10 +9,11 @@ import { Product } from '../../models/product.model';
 export class ProductItemComponent {
   @Input() product!: Product;
 
-  public calculateDiscount(price: number, rate: number): number {
-    console.log('============ Execute heavy process ============');
+  //* BAD METHOD
+  // public calculateDiscount(price: number, rate: number): number {
+  //   console.log('============ Execute heavy process ============');
 
-    if (rate <= 3.5) return price - price * 0.5;
-    else return price - price * 0.1;
-  }
+  //   if (rate <= 3.5) return price - price * 0.5;
+  //   else return price - price * 0.1;
+  // }
 }
